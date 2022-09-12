@@ -15,7 +15,7 @@ namespace BinarySearchTree
                     binarytree.insert(56);
                     binarytree.insert(30);
                     binarytree.insert(70);
-                    binarytree.inorderTraversal(binarytree.root);
+                    binarytree.Display(binarytree.root);
                     break;
                 default:
                     Console.WriteLine("Enter valid number");

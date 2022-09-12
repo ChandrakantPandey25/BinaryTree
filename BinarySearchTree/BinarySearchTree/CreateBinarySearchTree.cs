@@ -53,7 +53,7 @@ namespace BinarySearchTree
 
         }
 
-        public void inorderTraversal(Node<T> node)
+        public void Display(Node<T> node)
         {
 
             Console.WriteLine("Parent : {0}", root.data);
