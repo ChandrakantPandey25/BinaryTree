@@ -4,79 +4,80 @@ using System.Text;
 
 namespace BinarySearchTree
 {
-    
-        class ShowBinarySearchTree<T> where T : IComparable
-        {            
-            public Node<T> root;            
-            public ShowBinarySearchTree()
+
+    class ShowBinarySearchTree<T> where T : IComparable
+    {
+        public Node<T> root;
+
+        public ShowBinarySearchTree()
+        {
+            root = null;
+        }
+        public void Insert(T data)
+        {
+            Node<T> newNode = new Node<T>(data);
+
+            if (root == null)
             {
-                this.root = null;
-            }    
-            public void Insert(T data)
+                root = newNode;
+                return;
+            }
+            else
             {
-                Node<T> newNode = new Node<T>(data);
-                if (root == null)
+                Node<T> current = root, parent = null;
+
+                while (true)
                 {
-                    root = newNode;
-                }
-                else
-                {                    
-                    Node<T> current = root;                  
-                    Node<T> parent;
-                    while (true)
+                    parent = current;
+
+                    if (data.CompareTo(current.data) < 0)
                     {
-                        parent = current;                       
-                        if (data.CompareTo(current.data) < 0)
+                        current = current.left;
+                        if (current == null)
                         {
-                            current = current.Left;
-                            if (current == null)
-                            {
-                                parent.Left = newNode;
-                                break;
-                            }
-                        }                       
-                        else
+                            parent.left = newNode;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        current = current.right;
+                        if (current == null)
                         {
-                            current = current.Right;
-                            if (current == null)
-                            {
-                                parent.Right = newNode;
-                                break;
-                            }
+                            parent.right = newNode;
+                            return;
                         }
                     }
                 }
-            }                
-            public void DisplayBST(Node<T> parent)
-            {
-                Console.WriteLine("Parent : {0}", parent.data);
-                if (parent.Left != null)
-                {
-                    Console.WriteLine("Left :" + parent.Left.data);
-                }
-                if (parent.Right != null)
-                {
-                    Console.WriteLine("Right :" + parent.Right.data);
-                }
-                if (parent.Left != null)
-                {
-                    DisplayBST(parent.Left);
-                }
-                if (parent.Right != null)
-                {
-                    DisplayBST(parent.Right);
-                }
             }
-            public int Size(Node<T> node)
-            {
-                if (node == null)
-                {
-                    return 0;
-                }
-                else
-                {                   
-                    return (Size(node.Left) + 1 + Size(node.Right));
-                }
-            }
+
         }
+
+
+        public void Display(Node<T> node)
+        {
+
+            Console.WriteLine("Parent : {0}", root.data);
+            if (root.left != null)
+            {
+                Console.WriteLine("Left :" + root.left.data);
+            }
+            if (root.right != null)
+            {
+                Console.WriteLine("Right :" + root.right.data);
+            }
+            if (root.left != null)
+            {
+                Display(root.left);
+            }
+            if (root.right != null)
+            {
+                Display(root.right);
+            }
+
+
+        }
+       
+
+    }
 }
