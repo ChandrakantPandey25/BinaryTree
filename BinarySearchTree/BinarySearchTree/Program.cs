@@ -11,11 +11,11 @@ namespace BinarySearchTree
             switch (Convert.ToInt32(Console.ReadLine()))
             {
                 case 1:
-                    CreateBinarySearchTree<int> binarytree = new CreateBinarySearchTree<int>();
-                    binarytree.Insert(56);
-                    binarytree.Insert(30);
-                    binarytree.Insert(70);
-                    binarytree.DisplayBST(binarytree.root);
+                    BinarySearchTree<int> binarytree = new BinarySearchTree<int>();
+                    binarytree.insert(56);
+                    binarytree.insert(30);
+                    binarytree.insert(70);
+                    binarytree.inorderTraversal(binarytree.root);
                     break;
                 default:
                     Console.WriteLine("Enter valid number");

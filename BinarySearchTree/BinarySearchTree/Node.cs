@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BinarySearchTree
-{
-    public class Node<T> where T : IComparable
-    {     
-        public T data { get; set; }        
-        public Node<T> Left { get; set; }      
-        public Node<T> Right { get; set; }              
+{    
+    public class Node<T>
+    {
+        public T data;
+        public Node<T> left;
+        public Node<T> right;
+
         public Node(T data)
-        {
+        {            
             this.data = data;
-            Left = null;
-            Right = null;
+            this.left = null;
+            this.right = null;
         }
     }
 }
